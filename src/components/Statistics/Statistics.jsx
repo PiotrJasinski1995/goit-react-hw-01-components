@@ -2,20 +2,14 @@ import PropTypes from 'prop-types';
 import * as Styled from './styled';
 
 const Statistics = ({ title, stats }) => (
-  <Styled.StatisticsSection class="statistics">
-    {title && <Styled.Title class="title">{title}</Styled.Title>}
+  <Styled.StatisticsSection>
+    {title && <Styled.Title>{title}</Styled.Title>}
 
-    <Styled.StatisticList class="stat-list">
+    <Styled.StatisticList>
       {stats.map(stat => (
-        <Styled.StatisticItem
-          class="item"
-          key={stat.id}
-          colorId={stat.percentage}
-        >
-          <Styled.StatisticLabel class="label">
-            {stat.label}
-          </Styled.StatisticLabel>
-          <Styled.StatisticPercentage class="percentage">
+        <Styled.StatisticItem key={stat.id} $colorid={stat.percentage}>
+          <Styled.StatisticLabel>{stat.label}</Styled.StatisticLabel>
+          <Styled.StatisticPercentage>
             {stat.percentage}%
           </Styled.StatisticPercentage>
         </Styled.StatisticItem>
@@ -26,15 +20,17 @@ const Statistics = ({ title, stats }) => (
 
 Statistics.propTypes = {
   title: PropTypes.string,
-  stats: {
-    id: PropTypes.string,
-    label: PropTypes.string,
-    percentage: PropTypes.number,
-  },
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      label: PropTypes.string,
+      percentage: PropTypes.number,
+    })
+  ),
 };
 
 Styled.StatisticItem.propTypes = {
-  colorId: PropTypes.string,
+  colorid: PropTypes.number,
 };
 
 export default Statistics;

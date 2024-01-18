@@ -3,7 +3,7 @@ import * as Styled from './styled';
 
 const TransactionHistory = ({ items }) => (
   <Styled.TableContainer>
-    <table class="transaction-history">
+    <table>
       <thead>
         <tr>
           <Styled.StyledTh>Type</Styled.StyledTh>
@@ -26,11 +26,13 @@ const TransactionHistory = ({ items }) => (
 
 TransactionHistory.propTypes = {
   title: PropTypes.string,
-  items: {
-    type: PropTypes.string,
-    amount: PropTypes.string,
-    currency: PropTypes.string,
-  },
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      type: PropTypes.string,
+      amount: PropTypes.string,
+      currency: PropTypes.string,
+    })
+  ),
 };
 
 export default TransactionHistory;

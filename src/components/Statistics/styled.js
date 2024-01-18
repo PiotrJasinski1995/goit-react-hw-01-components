@@ -31,7 +31,7 @@ export const StatisticItem = styled.li`
   width: 100px;
   height: 80px;
   background-color: #${props =>
-      Math.floor((props.colorId / 100) * 16777215)
+      Math.floor((props.$colorid / 100) * 16777215)
         .toString(16)
         .padStart(6, '0')};
 `;

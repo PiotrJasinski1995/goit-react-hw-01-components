@@ -3,7 +3,7 @@ import FriendListItem from '../FriendListItem/FriendListItem';
 import * as Styled from './styled';
 
 const FriendList = ({ friends }) => (
-  <Styled.FriendListStyled className="friend-list">
+  <Styled.FriendListStyled>
     {friends.map(friend => (
       <FriendListItem
         key={friend.id}
@@ -16,7 +16,7 @@ const FriendList = ({ friends }) => (
 );
 
 FriendList.propTypes = {
-  friends: PropTypes.array,
+  friends: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default FriendList;

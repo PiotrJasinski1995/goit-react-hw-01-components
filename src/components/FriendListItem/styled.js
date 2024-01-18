@@ -16,7 +16,7 @@ export const FriendStatus = styled.span`
   left: 15px;
   width: 20px;
   height: 20px;
-  background-color: ${props => (props.isOnline ? 'green' : 'red')};
+  background-color: ${props => (props.$isonline ? 'green' : 'red')};
   border-radius: 50%;
   border: solid 1px lightblue;
   box-shadow: rgba(255, 0, 0, 0.25) 0px 54px 55px,
@@ -24,7 +24,7 @@ export const FriendStatus = styled.span`
     rgba(255, 0, 0, 0.17) 0px 12px 13px, rgba(255, 0, 0, 0.09) 0px -3px 5px;
 
   ${props =>
-    props.isOnline &&
+    props.$isonline &&
     css`
       box-shadow: rgba(0, 255, 0, 0.25) 0px 54px 55px,
         rgba(0, 255, 0, 0.12) 0px -12px 30px, rgba(0, 255, 0, 0.12) 0px 4px 6px,

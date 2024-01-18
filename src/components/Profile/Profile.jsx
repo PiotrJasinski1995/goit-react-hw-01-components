@@ -2,32 +2,26 @@ import PropTypes from 'prop-types';
 import * as Styled from './styled';
 
 const Profile = ({ username, tag, location, avatar, stats }) => (
-  <Styled.ProfileContainer className="profile">
+  <Styled.ProfileContainer>
     <Styled.Description className="description">
-      <Styled.Avatar src={avatar} alt="User avatar" className="avatar" />
-      <Styled.Name className="name">{username}</Styled.Name>
-      <Styled.Tag className="tag">@{tag}</Styled.Tag>
-      <Styled.Location className="location">{location}</Styled.Location>
+      <Styled.Avatar src={avatar} alt="User avatar" />
+      <Styled.Name>{username}</Styled.Name>
+      <Styled.Tag>@{tag}</Styled.Tag>
+      <Styled.Location>{location}</Styled.Location>
     </Styled.Description>
 
-    <Styled.Statistics className="stats">
+    <Styled.Statistics>
       <Styled.Statistic>
-        <span className="label">Followers</span>
-        <Styled.StatisticNumber className="quantity">
-          {stats.followers}
-        </Styled.StatisticNumber>
+        <span>Followers</span>
+        <Styled.StatisticNumber>{stats.followers}</Styled.StatisticNumber>
       </Styled.Statistic>
       <Styled.Statistic>
-        <span className="label">Views</span>
-        <Styled.StatisticNumber className="quantity">
-          {stats.views}
-        </Styled.StatisticNumber>
+        <span>Views</span>
+        <Styled.StatisticNumber>{stats.views}</Styled.StatisticNumber>
       </Styled.Statistic>
       <Styled.Statistic>
-        <span className="label">Likes</span>
-        <Styled.StatisticNumber className="quantity">
-          {stats.likes}
-        </Styled.StatisticNumber>
+        <span>Likes</span>
+        <Styled.StatisticNumber>{stats.likes}</Styled.StatisticNumber>
       </Styled.Statistic>
     </Styled.Statistics>
   </Styled.ProfileContainer>
@@ -38,11 +32,11 @@ Profile.propTypes = {
   tag: PropTypes.string,
   location: PropTypes.string,
   avatar: PropTypes.string,
-  stats: {
+  stats: PropTypes.shape({
     followers: PropTypes.number,
     views: PropTypes.number,
     likes: PropTypes.number,
-  },
+  }),
 };
 
 export default Profile;
